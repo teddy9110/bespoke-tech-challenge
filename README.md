@@ -4,7 +4,7 @@
 
 ### Scenario
 
-One of our developers has started a project for Company X and they have gone on holiday for 2 weeks, in order to continue development and keep pace with deliverable deadlines you have been asked to take over for the coming sprint.
+One of our developers has started a project for Company Y, and they have gone on holiday for 2 weeks, in order to continue development and keep pace with deliverable deadlines you have been asked to take over for the coming sprint.
 
 What has been produced so far can be considered unstable and not fully released to the client yet, so feel free to make any improvements that you see fit as you work your way through and maybe fix any bugs that QA or the client failed to find, if there are any.
 
