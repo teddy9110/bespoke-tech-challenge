@@ -8,7 +8,6 @@ import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/inertia-vue3';
 
 const showingNavigationDropdown = ref(false);
-
 </script>
 
 <template>
@@ -33,7 +32,7 @@ const showingNavigationDropdown = ref(false);
                                 </BreezeNavLink>
                             </div>
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="$page.props.auth.user.admin">
-                                <BreezeNavLink :href="route('admin.items.index')" :active="route().current('admin.items.index')">
+                                <BreezeNavLink :href="route('admin.items.index')" :active="route().current('admin.items.*')">
                                     Items
                                 </BreezeNavLink>
                             </div>
@@ -109,6 +108,16 @@ const showingNavigationDropdown = ref(false);
 
             <!-- Page Content -->
             <main>
+                <div class="rounded-md bg-green-50 p-4" v-if="$page.props.flash.message" >
+                    <div class="flex">
+                        <div class="ml-3">
+                            <div class="mt-2 text-sm text-green-700">
+                                <p>
+                                    {{ $page.props.flash.message }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <slot />
             </main>
         </div>

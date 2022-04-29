@@ -40,6 +40,7 @@ Route::post('/admin/items', [ItemsController::class, 'store'])
     ->middleware(['auth', 'verified', 'can:create,App\Models\Item']);
 
 Route::get('/admin/items/{item}/edit', [ItemsController::class, 'edit'])
+    ->name('admin.items.edit')
     ->middleware(['auth', 'verified', 'can:update,item']);
 
 Route::patch('/admin/items/{item}', [ItemsController::class, 'update'])
