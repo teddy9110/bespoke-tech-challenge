@@ -31,6 +31,11 @@ const showingNavigationDropdown = ref(false);
                                     Dashboard
                                 </BreezeNavLink>
                             </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <BreezeNavLink :href="route('admin.dashboard')" :active="route().current('admin.dashboard')">
+                                    Admin Dashboard
+                                </BreezeNavLink>
+                            </div>
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="$page.props.auth.user.admin">
                                 <BreezeNavLink :href="route('admin.items.index')" :active="route().current('admin.items.*')">
                                     Items

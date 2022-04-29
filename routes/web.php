@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ItemsController;
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,9 @@ Route::get('/', function () {
 
 Route::get('/dashboard', DashboardController::class)->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+Route::get('/admin/dashboard', AdminDashboardController::class)->middleware(['auth', 'verified'])
+    ->name('admin.dashboard');
 
 Route::get('/admin/items', [ItemsController::class, 'index'])
     ->name('admin.items.index')
