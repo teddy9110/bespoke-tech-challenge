@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Download;
+use App\Models\Info;
 use App\Models\Item;
+use App\Models\Weblink;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -19,12 +23,28 @@ class ItemsController extends Controller
 
     public function create(): Response
     {
-
+        return Inertia::render('Items/Create', []);
     }
 
     public function store()
     {
+        $type = match(request()->input('content_type')) {
+            'info' => new Info([
+                    'header' => request('content.header'),
+                    'content' => request('content.content'),
+                ]),
+            'download' => new Download([
+                    'url =' => request('content.url'),
+                ]),
+            'WEBLINK' => new Weblink([
+                    'url =' => request('content.url'),
+                ]),
+        };
+        $type->save();
 
+        $type->item()->save(new Item(request()->only(['name', 'description'])));
+
+        return redirect()->route('admin.items.index')->with('message', 'Successfully Created Item');
     }
 
     public function edit(Item $item): Response
@@ -34,7 +54,7 @@ class ItemsController extends Controller
         ]);
     }
 
-    public function update(Item $item)
+    public function update(Item $item): RedirectResponse
     {
         $item->forceFill(request()->only(['name', 'description']));
 

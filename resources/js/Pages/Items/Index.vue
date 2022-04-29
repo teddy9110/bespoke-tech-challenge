@@ -23,7 +23,11 @@ const props = defineProps({
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-4">
                     <div class="p-6 bg-white border-b border-gray-200">
-                        <h3 class="text-2xl">Items</h3>
+                        <div class="flex justify-between">
+                            <h3 class="text-2xl">Items</h3>
+                            <Link :href="route('admin.items.create')" class="w-auto flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Create Item</Link>
+
+                        </div>
 
                         <div class="mt-8 flex flex-col">
                             <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">

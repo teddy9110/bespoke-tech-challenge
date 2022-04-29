@@ -14,6 +14,10 @@ class Item extends Model
         'type_icon'
     ];
 
+    protected $guarded = [
+        'id'
+    ];
+
     public function getTypeIconAttribute($value): string
     {
         return match($this->content_type) {

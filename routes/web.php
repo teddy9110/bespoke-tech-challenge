@@ -34,6 +34,7 @@ Route::get('/admin/items', [ItemsController::class, 'index'])
     ->middleware(['auth', 'verified', 'can:viewAny,App\Models\Item']);
 
 Route::get('/admin/items/create', [ItemsController::class, 'create'])
+    ->name('admin.items.create')
     ->middleware(['auth', 'verified', 'can:create,App\Models\Item']);
 
 Route::post('/admin/items', [ItemsController::class, 'store'])

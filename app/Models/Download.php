@@ -10,6 +10,10 @@ class Download extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
+        'id'
+    ];
+
     public function item(): MorphOne
     {
         return $this->morphOne(Item::class, 'content');
