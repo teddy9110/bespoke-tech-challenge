@@ -15,6 +15,7 @@ class ItemFactory extends Factory
             'name' => $this->faker->words(rand(3, 6), true),
             'image_url' => 'https://random.imagecdn.app/250/400',
             'description' => $this->faker->optional()->paragraph(),
+            'active' => $this->faker->boolean(),
         ];
     }
 }
