@@ -8,7 +8,7 @@ One of our developers has started a project for Company Y, and they have gone on
 
 What has been produced so far can be considered unstable and not fully released to the client yet, so feel free to make any improvements that you see fit as you work your way through and maybe fix any bugs that QA or the client failed to find, if there are any.
 
-The current team are using Laravel Sail to work locally, but you are free to use any development setup you want.
+The current team are using Laravel Sail to work locally ([Setup Instructions](https://laravel.com/docs/9.x/sail)), but you are free to use any development setup you want.
 
 The 3 Jira tickets assigned to this sprint are:
 
