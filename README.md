@@ -29,9 +29,9 @@ BSP-Y-35:
 
 Fork the repository and make your commits against that, then when finished give the following users access:
 
-- RossUK88
-- ash-shenton
-- chrishyndadblx
+- [RossUK88](https://github.com/RossUK88)
+- [ashleyshenton](https://github.com/ashleyshenton)
+- [chrishyndadblx](https://github.com/chrishyndadblx)
 
 There should be a full complement of seeders to get you up and running as fast as possible.
 
