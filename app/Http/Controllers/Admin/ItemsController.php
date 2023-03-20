@@ -14,10 +14,17 @@ use Inertia\Response;
 
 class ItemsController extends Controller
 {
-    public function index(): Response
+    public function index(Request $request): Response
     {
         return Inertia::render('Items/Index', [
-            'items' => Item::query()->oldest()->limit(10)->get(),
+            'items' => Item::query()
+                ->when($request->input('catagory'), function ($query, $search) {
+                        $query->where('content_type', $search);
+                        $query->with('content');
+                }
+            )->oldest()->limit(10)->get(),
+            'itemCatagories' => Item::select('content_type')->groupby('content_type')->distinct()->get(),
+            'catagory' => $request->catagory
         ]);
     }
 
@@ -72,5 +79,14 @@ class ItemsController extends Controller
         $item->push();
 
         return redirect()->route('admin.items.index')->with('message', 'Successfully Updated Item');
+    }
+
+    public function delete(Item $item): Response
+    {
+        $item->delete(); 
+
+        return Inertia::render('Items/Index', [
+            'items' => Item::query()->oldest()->limit(10)->get(),
+        ]);
     }
 }

@@ -31,7 +31,7 @@ class ItemPolicy
     }
     public function delete(User $user, Item $item)
     {
-        //
+        return $user->admin;
     }
 
     public function restore(User $user, Item $item)
